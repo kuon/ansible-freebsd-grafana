@@ -1,0 +1,15 @@
+- name: Install grafana
+  pkgng: name=grafana2
+
+- name: Copy grafana config
+  template: src=config/grafana2.conf dest=/usr/local/etc/grafana2.conf
+  when: grafana_custom_config is not defined
+
+- name: Copy grafana config
+  template: src={{ grafana_custom_config }} dest=/usr/local/etc/grafana2.conf
+  when: grafana_custom_config is defined
+
+- name: Start grafana
+  service: name=grafana2 state=restarted enabled=true
+
+
