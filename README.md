@@ -1,7 +1,7 @@
 FreeBSD-grafana
 ==================
 
-Install grafana.
+Install grafana using the FreeBSD pkg.
 
 
 This role contains a minimal default grafana config.
